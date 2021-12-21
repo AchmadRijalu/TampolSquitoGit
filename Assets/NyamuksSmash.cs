@@ -5,7 +5,9 @@ using UnityEngine;
 public class NyamuksSmash : MonoBehaviour
 {
     // Start is called before the first frame update
-      float speed = 15.0f;
+    float speed = 15.0f;
+    float arahVertikal = 0.01f;
+    float arahHorizontal = -0.01f;
 
     private Rigidbody2D rb;
 
@@ -15,29 +17,26 @@ public class NyamuksSmash : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        transform.position = new Vector3(10, Random.Range(-4, 4), 0);
         rb = this.GetComponent<Rigidbody2D>();
         rb.velocity = new Vector2(-speed, 0);
-
-        
+        arahVertikal = (Random.Range(0, 4)) == 0 ? 0.01f : -0.01f;
     }
 
     // Update is called once per frame
     void Update()
     {
+        transform.Translate(new Vector3(arahHorizontal, arahVertikal * speed, 0));
         if (transform.position.x < -9)
         {
             Destroy(this.gameObject);
             
         }
-
-        
-            
-        
-
-        
-            
-       
- ;    }
+        if ((transform.position.y > 5) || (transform.position.y < -5))
+        {
+            arahVertikal = -arahVertikal;
+        }
+    }
     public GameObject smasheffect;
 
     private void OnMouseDown()
