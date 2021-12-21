@@ -5,7 +5,7 @@ using UnityEngine;
 public class NyamuksSmash : MonoBehaviour
 {
     // Start is called before the first frame update
-      float speed = 10.0f;
+      float speed = 15.0f;
 
     private Rigidbody2D rb;
 
@@ -31,7 +31,7 @@ public class NyamuksSmash : MonoBehaviour
         }
 
         
-            Wave();
+            
         
 
         
