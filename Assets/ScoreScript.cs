@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ScoreScript : MonoBehaviour
 {
     public static int scoreValue = 0;
+    public static int highscore=0;
     Text score;
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,4 @@ public class ScoreScript : MonoBehaviour
     {
         score.text = "Score : " + scoreValue/2;
     }
-
-    
-    
 }

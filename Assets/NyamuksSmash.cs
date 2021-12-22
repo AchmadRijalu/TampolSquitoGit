@@ -64,7 +64,10 @@ public class NyamuksSmash : MonoBehaviour
     {
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        ScoreScript.scoreValue = 0;
+        if (ScoreScript.scoreValue/2 > ScoreScript.highscore)
+        {
+            ScoreScript.highscore = ScoreScript.scoreValue;
+        }
         
     }
 
