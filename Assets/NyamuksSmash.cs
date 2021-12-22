@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class NyamuksSmash : MonoBehaviour
 {
     // Start is called before the first frame update
-    float speed = 3.0f;
+    float speed = 7.0f;
     float arahVertikal = 0.01f;
     float arahHorizontal = -0.01f;
 
@@ -43,7 +43,7 @@ public class NyamuksSmash : MonoBehaviour
         }
         if (ScoreScript.scoreValue/2 >=10 && (ScoreScript.scoreValue/2) % 10 >= 0)
         {
-            speed += 0.02f;
+            speed += 0.04f;
         }
     }
     public GameObject smasheffect;

@@ -11,8 +11,17 @@ public class MainMenu : MonoBehaviour
         ScoreScript.scoreValue = 0;
     }
 
+    public void credit()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
+    }
+
     public void Quitame()
     {
         Application.Quit();
+    }
+    private void Awake()
+    {
+        Application.targetFrameRate = 60;
     }
 }
