@@ -1,26 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class NyamuksSmash : MonoBehaviour
 {
     // Start is called before the first frame update
-    float speed = 15.0f;
+    float speed = 1.0f;
     float arahVertikal = 0.01f;
     float arahHorizontal = -0.01f;
 
     private Rigidbody2D rb;
 
-   
+    bool isPaused = false;
+    
 
+    
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
-        transform.position = new Vector3(10, Random.Range(-4, 4), 0);
+        transform.position = new Vector3(10, Random.Range(-4, 5), 0);
         rb = this.GetComponent<Rigidbody2D>();
         rb.velocity = new Vector2(-speed, 0);
-        arahVertikal = (Random.Range(0, 4)) == 0 ? 0.01f : -0.01f;
+        arahVertikal = (Random.Range(0, 2)) == 0 ? 0.01f : -0.01f;
     }
 
     // Update is called once per frame
@@ -29,15 +31,19 @@ public class NyamuksSmash : MonoBehaviour
         transform.Translate(new Vector3(arahHorizontal, arahVertikal * speed, 0));
         if (transform.position.x < -9)
         {
-            Destroy(this.gameObject);
             
+            gameoverscreen();
+            
+            Destroy(this.gameObject);
+
         }
-        if ((transform.position.y > 5) || (transform.position.y < -5))
+        if ((transform.position.y > 3) || (transform.position.y < -2))
         {
             arahVertikal = -arahVertikal;
         }
     }
     public GameObject smasheffect;
+    
 
     private void OnMouseDown()
     {
@@ -45,16 +51,21 @@ public class NyamuksSmash : MonoBehaviour
         Destroy(gameObject);
 
         var b = Instantiate(smasheffect, transform.position, Quaternion.identity);
-        if (Input.GetMouseButtonDown(0))
-        {
+        
             Destroy(b, 2f);
             ScoreScript.scoreValue += 1;
             speed += 0.02f;
-        }
+        
 
     }
 
-    
+    public void gameoverscreen()
+    {
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        ScoreScript.scoreValue = 0;
+        
+    }
 
     private void Wave()
     {
@@ -73,6 +84,15 @@ public class NyamuksSmash : MonoBehaviour
 
 
     }
-    
-    
+    public void pauseGame()
+    {
+        if (!isPaused)
+        {
+            Time.timeScale = 0;
+            isPaused = true;
+        }
+
+    }
+
+
 }
