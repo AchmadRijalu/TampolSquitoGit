@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7315428024729640733}
   - component: {fileID: 7315428024729640728}
   - component: {fileID: 7315428024729640732}
+  - component: {fileID: 1519728460401985248}
   m_Layer: 0
   m_Name: NyamukS
   m_TagString: Untagged
@@ -118,7 +119,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smasheffect: {fileID: 5646489129547997319, guid: 153126c9ce6a84a49927fec83011364d, type: 3}
-  img: {fileID: 4552617613430416229, guid: 4366d37e38531f846834298a3d64d500, type: 3}
 --- !u!50 &7315428024729640729
 Rigidbody2D:
   serializedVersion: 4
@@ -147,7 +147,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7315428024729640707}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -173,7 +173,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7315428024729640707}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -195,4 +195,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smasheffect: {fileID: 5646489129547997319, guid: 153126c9ce6a84a49927fec83011364d, type: 3}
-  img: {fileID: 0}
+--- !u!95 &1519728460401985248
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7315428024729640707}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 830a4a8293a7cf4479fabd334483f7d0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
